@@ -382,7 +382,7 @@ module.exports = function(RED)
 
                 var api = null;
                 var cmd = null;
-                if (node.config.enableTopicOverride && msg.topic && (typeof msg.topic == "string"))
+                if (node.config.enableTopic && msg.topic && (typeof msg.topic == "string"))
                 {
                     api = getAPIFromTopic(msg.topic);
 
