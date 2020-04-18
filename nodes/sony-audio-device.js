@@ -43,12 +43,12 @@ module.exports = function(RED)
         if (req.query.type === "cached")
         {
             // return cached values
-            RED.log.debug("Returning cached Sony audio devices.");
+            RED.log.debug("Returning cached Sony audio devices");
             res.json(deviceList);
         }
         else
         {
-            RED.log.debug("Searching for Sony audio devices...");
+            RED.log.debug("Searching for Sony audio devices");
 
             deviceList = [];
             ssdpClient.search(DISCOVERY_SEARCH_TARGET);
@@ -167,10 +167,9 @@ module.exports = function(RED)
             delete this.subscribers[id];
 
             let found = false;
-            const s = Object.values(this.subscribers);
-            for (i = 0; i < s.length; ++i)
+            for (const subscriber of Object.values(this.subscribers))
             {
-                if (s[i].service == service)
+                if (subscriber.service == service)
                 {
                     found = true;
                     break;
@@ -206,7 +205,7 @@ module.exports = function(RED)
 
         Object.values(subscribers).forEach(subscriber =>
         {
-            if (subscriber.service === service)
+            if (subscriber.service == service)
             {
                 ret = ret | subscriber.filter;
             }
