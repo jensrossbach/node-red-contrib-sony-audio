@@ -29,11 +29,20 @@
         "xml-js": "^1.6.11"
     },
     "devDependencies": {
-        "eslint": "^7.21.0"
+        "eslint": "^7.21.0",
+        "mocha": "^8.3.0",
+        "sinon": "^9.2.4",
+        "should": "^13.2.3",
+        "should-sinon": "^0.0.6",
+        "nyc": "^15.1.0",
+        "node-red": "^1.2.9",
+        "node-red-node-test-helper": "^0.2.7"
     },
     "main": "none",
     "scripts": {
-        "lint": "npx eslint \"nodes/**/*.js\""
+        "lint": "npx eslint \"nodes/**/*.js\"",
+        "test": "mocha \"test/**/*_spec.js\"",
+        "coverage": "nyc --reporter=html npm run test"
     },
     "node-red": {
         "nodes": {

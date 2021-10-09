@@ -1,19 +1,25 @@
-# Action for checking code with ESLint on pull requests
-name: ESLint
+# Action for quality assurance (checking code with ESLint for the time being)
+name: Quality Assurance
 
-# Triggers
+# Trigger workflow on pushes to master including Javascript files and any pull requests for master
 on:
+  push:
+    branches: [ master ]
+    paths:    [ "**.js" ]
   pull_request:
     branches: [ master ]
 
 # Workflow
 jobs:
-  # Lint job
-  eslint:
+  # Quality assurance job
+  quality-assurance:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
       - name: Install modules
         run: npm install
-      - name: Run ESLint
+      - name: Run code linter
         run: npm run lint
