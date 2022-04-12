@@ -74,32 +74,14 @@ module.exports = function(RED)
             {
                 let context = {msg: msg};
 
-                if (send)
+                if (!send || !done)
                 {
-                    context.send = send;
-                }
-                else
-                {
-                    // Node-RED 0.x backward compatibility
-                    context.send = function() { node.send.apply(node, arguments); };
+                    // no support for Node-RED prior to version 1.0 anymore
+                    return;
                 }
 
-                if (done)
-                {
-                    context.done = done;
-                    context.error = done;
-                }
-                else
-                {
-                    // Node-RED 0.x backward compatibility
-                    context.done = function() {};
-                    context.error = function()
-                    {
-                        let args = [...arguments];
-                        args.push(msg);
-                        node.error.apply(node, args);
-                    };
-                }
+                context.send = send;
+                context.done = done;
 
                 let api = null;
                 let cmd = null;
@@ -210,7 +192,7 @@ module.exports = function(RED)
                                 (!args.relativeVolume && (args.volume < 0)))
                             {
                                 setStatus(STATUS_ERROR, STATUS_TEMP_DURATION);
-                                context.error("Invalid " + (args.relativeVolume ? "relative" : "absolute") + " volume: " + args.volume);
+                                context.done("Invalid " + (args.relativeVolume ? "relative" : "absolute") + " volume: " + args.volume);
 
                                 break;
                             }
@@ -517,7 +499,7 @@ module.exports = function(RED)
                         default:
                         {
                             setStatus(STATUS_ERROR, STATUS_TEMP_DURATION);
-                            context.error("Invalid command: " + context.command);
+                            context.done("Invalid command: " + context.command);
 
                             break;
                         }
@@ -916,7 +898,7 @@ module.exports = function(RED)
             .catch(error =>
             {
                 setStatus(STATUS_ERROR, STATUS_TEMP_DURATION);
-                context.error(error);
+                context.done(error);
             });
         }
 
