@@ -3,18 +3,14 @@
 <a href="https://www.npmjs.com/package/node-red-contrib-sony-audio"><img title="npm version" src="https://badgen.net/npm/v/node-red-contrib-sony-audio"></a>
 <a href="https://www.npmjs.com/package/node-red-contrib-sony-audio"><img title="npm downloads" src="https://badgen.net/npm/dt/node-red-contrib-sony-audio"></a>
 
+> **Note**<br>
+> This node package is now deprecated and entered maintenance state. [Version 2](https://github.com/jensrossbach/node-red-sony-audio) of Node-RED Sony Audio has been released where large parts of the software have been rewritten. The nodes have been modernized, made much leaner and cleaner and at the same time provide more flexibility and new powerful functionality. As the new release is not compatible with version 1.x and introduces breaking changes, the new nodes have been published as [new package](https://flows.nodered.org/node/@jens_rossbach/node-red-sony-audio). I recommend everyone to migrate to the new package as it allows for more possibilities. Version 1.x will still be maintained for fixing bugs or security issues, but any changes requiring larger efforts will from now on only be done for version 2.x.
+
 A collection of Node-RED nodes for querying and controlling Sony audio devices that support the Sony Audio Control API.
 
 ![node-red-contrib-sony-audio](images/sony_audio_flow.png)
 
 With these nodes you can connect to your Sony audio devices and send control commands (like powering on/off, change volume etc.), retrieve information (like the current volume, the current value of a sound setting etc.) or get notified of certain events (like a change of the power state, a change of the mute state etc.).
-
----
-### NOTE
-
-**[Version 2](https://github.com/jensrossbach/node-red-sony-audio) of Node-RED Sony Audio has been released where large parts of the software have been rewritten. The nodes have been modernized, made much leaner and cleaner and at the same time provide more flexibility and new powerful functionality. As the new release is not compatible with version 1.x and introduces breaking changes, the new nodes have been published as [new package](https://flows.nodered.org/node/@jens_rossbach/node-red-sony-audio). I recommend everyone to migrate to the new package as it allows for more possibilities. Version 1.x will still be maintained for fixing bugs or implementing smaller improvements on user request, but any changes requiring larger efforts will from now on only be done for version 2.x.**
-
----
 
 If you encountered a bug, would like to propose a new feature or simply want to share your opinion about the software, please have a look at the [contribution guide](https://github.com/jensrossbach/node-red-contrib-sony-audio/blob/master/CONTRIBUTING.md) on the GitHub repository to learn more about how to contribute to this project. If you need help or have questions, please check out the [instructions for getting support](https://github.com/jensrossbach/node-red-contrib-sony-audio/blob/master/SUPPORT.md).
 
