@@ -608,7 +608,6 @@ module.exports = function(RED)
         {
             let uri = source;
             if (((source == "extInput:hdmi") ||
-                 (source == "extInput:video") ||
                  (source == "extInput:line")) &&
                 (port > 0))
             {
